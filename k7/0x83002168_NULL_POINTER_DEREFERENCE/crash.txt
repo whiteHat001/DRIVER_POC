@@ -1,0 +1,237 @@
+
+Microsoft (R) Windows Debugger Version 10.0.15063.468 AMD64
+Copyright (c) Microsoft Corporation. All rights reserved.
+
+
+Loading Dump File [C:\Users\hackyzh\Desktop\MEMORY.DMP]
+Kernel Bitmap Dump File: Kernel address space is available, User address space may not be available.
+
+
+************* Symbol Path validation summary **************
+Response                         Time (ms)     Location
+Deferred                                       SRV*C:\symbols*http://msdl.microsoft.com/download/symbols
+Symbol search path is: SRV*C:\symbols*http://msdl.microsoft.com/download/symbols
+Executable search path is: 
+Windows 10 Kernel Version 14393 MP (4 procs) Free x64
+Product: WinNt, suite: TerminalServer SingleUserTS
+Built by: 14393.0.amd64fre.rs1_release.160715-1616
+Machine Name:
+Kernel base = 0xfffff800`ea00e000 PsLoadedModuleList = 0xfffff800`ea313060
+Debug session time: Wed Jan 10 14:39:24.836 2018 (UTC + 8:00)
+System Uptime: 0 days 0:03:23.552
+Loading Kernel Symbols
+...............................................................
+................................................................
+...............................................................
+Loading User Symbols
+PEB is paged out (Peb.Ldr = 00000003`28d31018).  Type ".hh dbgerr001" for details
+Loading unloaded module list
+.......
+*******************************************************************************
+*                                                                             *
+*                        Bugcheck Analysis                                    *
+*                                                                             *
+*******************************************************************************
+
+Use !analyze -v to get detailed debugging information.
+
+BugCheck 3B, {c0000005, fffff809d5d396da, ffffaa01f64a6b10, 0}
+
+*** ERROR: Module load completed but symbols could not be loaded for K7FWHlpr.sys
+Probably caused by : K7FWHlpr.sys ( K7FWHlpr+96da )
+
+Followup:     MachineOwner
+---------
+
+3: kd> !analyze -v
+*******************************************************************************
+*                                                                             *
+*                        Bugcheck Analysis                                    *
+*                                                                             *
+*******************************************************************************
+
+SYSTEM_SERVICE_EXCEPTION (3b)
+An exception happened while executing a system service routine.
+Arguments:
+Arg1: 00000000c0000005, Exception code that caused the bugcheck
+Arg2: fffff809d5d396da, Address of the instruction which caused the bugcheck
+Arg3: ffffaa01f64a6b10, Address of the context record for the exception that caused the bugcheck
+Arg4: 0000000000000000, zero.
+
+Debugging Details:
+------------------
+
+
+DUMP_CLASS: 1
+
+DUMP_QUALIFIER: 401
+
+BUILD_VERSION_STRING:  14393.0.amd64fre.rs1_release.160715-1616
+
+SYSTEM_MANUFACTURER:  VMware, Inc.
+
+VIRTUAL_MACHINE:  VMware
+
+SYSTEM_PRODUCT_NAME:  VMware Virtual Platform
+
+SYSTEM_VERSION:  None
+
+BIOS_VENDOR:  Phoenix Technologies LTD
+
+BIOS_VERSION:  6.00
+
+BIOS_DATE:  05/19/2017
+
+BASEBOARD_MANUFACTURER:  Intel Corporation
+
+BASEBOARD_PRODUCT:  440BX Desktop Reference Platform
+
+BASEBOARD_VERSION:  None
+
+DUMP_TYPE:  1
+
+BUGCHECK_P1: c0000005
+
+BUGCHECK_P2: fffff809d5d396da
+
+BUGCHECK_P3: ffffaa01f64a6b10
+
+BUGCHECK_P4: 0
+
+EXCEPTION_CODE: (NTSTATUS) 0xc0000005 - <Unable to get error code text>
+
+FAULTING_IP: 
+K7FWHlpr+96da
+fffff809`d5d396da 8901            mov     dword ptr [rcx],eax
+
+CONTEXT:  ffffaa01f64a6b10 -- (.cxr 0xffffaa01f64a6b10)
+rax=0000000000000000 rbx=ffffaa01f64a7790 rcx=0000000000000000
+rdx=0000000000000000 rsi=0000000000000000 rdi=00000000c00000bb
+rip=fffff809d5d396da rsp=ffffaa01f64a7520 rbp=ffffaa01f64a77c0
+ r8=0000000000000000  r9=0000000000000000 r10=0000000083002168
+r11=0000000000000000 r12=0000000000000000 r13=ffffcd02131c0c40
+r14=0000000000000000 r15=0000000000000000
+iopl=0         nv up ei ng nz ac po cy
+cs=0010  ss=0018  ds=002b  es=002b  fs=0053  gs=002b             efl=00010297
+K7FWHlpr+0x96da:
+fffff809`d5d396da 8901            mov     dword ptr [rcx],eax ds:002b:00000000`00000000=????????
+Resetting default scope
+
+CPU_COUNT: 4
+
+CPU_MHZ: e70
+
+CPU_VENDOR:  GenuineIntel
+
+CPU_FAMILY: 6
+
+CPU_MODEL: 9e
+
+CPU_STEPPING: a
+
+CPU_MICROCODE: 6,9e,a,0 (F,M,S,R)  SIG: 6A'00000000 (cache) 6A'00000000 (init)
+
+DEFAULT_BUCKET_ID:  WIN8_DRIVER_FAULT
+
+BUGCHECK_STR:  0x3B
+
+PROCESS_NAME:  antivirus.exe
+
+CURRENT_IRQL:  0
+
+ANALYSIS_SESSION_HOST:  HACKYZH
+
+ANALYSIS_SESSION_TIME:  01-10-2018 14:51:50.0622
+
+ANALYSIS_VERSION: 10.0.15063.468 amd64fre
+
+LAST_CONTROL_TRANSFER:  from fffff809d5d344bc to fffff809d5d396da
+
+STACK_TEXT:  
+ffffaa01`f64a7520 fffff809`d5d344bc : ffffcd02`14e0f580 fffff800`ea04777f ffffcd02`118e2e18 fffff809`d83896e1 : K7FWHlpr+0x96da
+ffffaa01`f64a7770 fffff809`d5d347e7 : ffffaa01`f19c0180 ffffcd02`139535d0 00000000`00000000 00000000`c000000d : K7FWHlpr+0x44bc
+ffffaa01`f64a77e0 fffff800`ea40ea20 : ffffcd02`15eada60 ffffaa01`00000004 00000000`00000001 00000000`00000000 : K7FWHlpr+0x47e7
+ffffaa01`f64a7820 fffff800`ea40d904 : ffffcd02`00000000 ffffcd02`15eada04 00000000`00000000 ffffaa01`f64a7b80 : nt!IopSynchronousServiceTail+0x1a0
+ffffaa01`f64a78e0 fffff800`ea40d286 : ffffcd02`15fb8d00 00000000`00000000 00000000`00000000 00000000`00000000 : nt!IopXxxControlFile+0x674
+ffffaa01`f64a7a20 fffff800`ea162c93 : fffffb7d`9fffb818 00000000`00000000 00000000`00000000 00000000`00000000 : nt!NtDeviceIoControlFile+0x56
+ffffaa01`f64a7a90 00007ffe`e3f94f34 : 00000000`00000000 00000000`00000000 00000000`00000000 00000000`00000000 : nt!KiSystemServiceCopyEnd+0x13
+00000003`28b7f6b8 00000000`00000000 : 00000000`00000000 00000000`00000000 00000000`00000000 00000000`00000000 : 0x00007ffe`e3f94f34
+
+
+THREAD_SHA1_HASH_MOD_FUNC:  9a523ffe1594cbb1eecd16c9161b3f90deb6d050
+
+THREAD_SHA1_HASH_MOD_FUNC_OFFSET:  4b8bce0da8a4d033a9bf7d7ad43706be42499372
+
+THREAD_SHA1_HASH_MOD:  1971392d90d90cc206438562fc760da4325f0d4a
+
+FOLLOWUP_IP: 
+K7FWHlpr+96da
+fffff809`d5d396da 8901            mov     dword ptr [rcx],eax
+
+FAULT_INSTR_CODE:  c0330189
+
+SYMBOL_STACK_INDEX:  0
+
+SYMBOL_NAME:  K7FWHlpr+96da
+
+FOLLOWUP_NAME:  MachineOwner
+
+MODULE_NAME: K7FWHlpr
+
+IMAGE_NAME:  K7FWHlpr.sys
+
+DEBUG_FLR_IMAGE_TIMESTAMP:  59fade07
+
+STACK_COMMAND:  .cxr 0xffffaa01f64a6b10 ; kb
+
+BUCKET_ID_FUNC_OFFSET:  96da
+
+FAILURE_BUCKET_ID:  0x3B_K7FWHlpr!unknown_function
+
+BUCKET_ID:  0x3B_K7FWHlpr!unknown_function
+
+PRIMARY_PROBLEM_CLASS:  0x3B_K7FWHlpr!unknown_function
+
+TARGET_TIME:  2018-01-10T06:39:24.000Z
+
+OSBUILD:  14393
+
+OSSERVICEPACK:  0
+
+SERVICEPACK_NUMBER: 0
+
+OS_REVISION: 0
+
+SUITE_MASK:  272
+
+PRODUCT_TYPE:  1
+
+OSPLATFORM_TYPE:  x64
+
+OSNAME:  Windows 10
+
+OSEDITION:  Windows 10 WinNt TerminalServer SingleUserTS
+
+OS_LOCALE:  
+
+USER_LCID:  0
+
+OSBUILD_TIMESTAMP:  2016-07-16 10:16:17
+
+BUILDDATESTAMP_STR:  160715-1616
+
+BUILDLAB_STR:  rs1_release
+
+BUILDOSVER_STR:  10.0.14393.0.amd64fre.rs1_release.160715-1616
+
+ANALYSIS_SESSION_ELAPSED_TIME:  4b2
+
+ANALYSIS_SOURCE:  KM
+
+FAILURE_ID_HASH_STRING:  km:0x3b_k7fwhlpr!unknown_function
+
+FAILURE_ID_HASH:  {fd05c010-ca19-962b-8a20-680179c5f672}
+
+Followup:     MachineOwner
+---------
+
